@@ -14,18 +14,16 @@ public class Base {
     }
 
     public void print() {
-        printElements(0, 2);
-    }
-
-    protected final void printElements(int start, int step) {
         StringBuilder builder = new StringBuilder();
-        builder.append(getClass().getSimpleName()).append(" ").append("elements: ");
-        for(int i = start; i < elements.length; i=i+step) {
-            builder.append("{").append(i).append("}");
-            builder.append("=");
-            builder.append(elements[i]);
-            builder.append(";");
+        builder.append(getClass().getSimpleName()).append(" ").append("elements: [");
+        int count = 0;
+        for(int element : elements) {
+            if((element%2)==0) {
+                if (++count > 1) builder.append(", ");
+                builder.append(element);
+            }
         }
+        builder.append("]");
         System.out.println(builder.toString());
     }
 
