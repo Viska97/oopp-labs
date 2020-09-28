@@ -1,0 +1,20 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+mainClassName = 'ru.stankin.oopp.lab2.Main'
+
+archivesBaseName = 'oopp-lab2'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+jar {
+    manifest {
+        attributes(
+                "Class-Path": configurations.compile.collect { it.getName() }.join(" "),
+                "Main-Class": mainClassName
+        )
+    }
+}
